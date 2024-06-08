@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('movie_lists', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('movie_name',50);
+            $table->boolean('status')->default(false);
+            $table->integer('evaluations');
+            $table->integer('how_to_watch');
+            $table->string('comments',100);
+            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 
