@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('addition' , MovieListController::class);
+Route::resource('additions' , MovieListController::class);

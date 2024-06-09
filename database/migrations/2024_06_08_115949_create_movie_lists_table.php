@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('movie_name',50);
             $table->boolean('status')->default(false);
-            $table->integer('evaluations');
-            $table->integer('how_to_watch');
-            $table->string('comments',100);
+            $table->integer('evaluations')->nullable();
+            $table->integer('how_to_watch')->nullable();
+            $table->string('comments',100)->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
         });
