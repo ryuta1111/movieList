@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 // localhost:8000/additions にアクセスしたらMovieListControllerを呼び出す
-Route::resource('additions' , MovieListController::class);
+Route::resource('movieLists' , MovieListController::class);

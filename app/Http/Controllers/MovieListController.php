@@ -13,10 +13,11 @@ class MovieListController extends Controller
      */
     public function index()
     {
+        //変数名＝モデル名::処理
         // $movieLists = movieList::all(); 全て表示
-        $movieLists=movieList::where('status' , false)->get(); //複数のレコードを取得するとき　first()は最初のレコードだけ
+        $Lists=movieList::where('status' , false)->get(); //複数のレコードを取得するとき　first()は最初のレコードだけ
         //return view('[~/resources/views/]フォルダ名.ファイル名' , compact('変数名'))
-        return view('additions.index' , compact('movieLists'));
+        return view('movieLists.index' , compact('Lists'));
     }
 
     /**
@@ -45,16 +46,16 @@ class MovieListController extends Controller
 
 
         //モデルをインスタンス化
-        $movieList= new movieList;
+        $List= new movieList;
 
         //モデル->カラム名　＝　値　で、データを割り当てる
-        $movieList->movie_name = $request->input('movie_name');
+        $List->movie_name = $request->input('movie_name');
 
         //データベースに保存
-        $movieList->save();
+        $List->save();
 
         //リダイレクト
-        return redirect('/additions');
+        return redirect('/movieLists');
 
 
         // dd($movie_name);
@@ -74,8 +75,8 @@ class MovieListController extends Controller
     public function edit(string $id)
     {
         //モデル名::find(整数)
-        $movieList = movieList::find($id);
-        return view('additions.edit' , compact('movieList'));
+        $List = movieList::find($id);
+        return view('movieLists.edit' , compact('List'));
     }
 
     /**
@@ -95,30 +96,30 @@ class MovieListController extends Controller
             Validator::make($request->all(), $rules,$messages)->validate();
 
             //該当のタスクを検索
-            $movieList = movieList::find($id);
+            $List = movieList::find($id);
 
             //モデル->カラム名 = 値　で、データを割り当てる
-            $movieList->movie_name = $request->input('movie_name');
+            $List->movie_name = $request->input('movie_name');
 
             //データベースに保存
-            $movieList->save();
+            $List->save();
         }else{
             //「完了」ボタンを押した時
 
             //該当のタスクを検索
-            $movieList = movieList::find($id);
+            $List = movieList::find($id);
 
             //モデル->カラム名 = 値　で、データを割り当てる
-            $movieList->status=true; //true:完了,false:未完了
+            $List->status=true; //true:完了,false:未完了
 
             //データベースに保存
-            $movieList->save();
+            $List->save();
 
         }
 
-        
+
         //リダイレクト
-        return redirect('/additions');
+        return redirect('/movieLists');
     }
 
     /**
@@ -129,6 +130,6 @@ class MovieListController extends Controller
         //
         movieList::find($id)->delete();
 
-        return redirect('/additions');
+        return redirect('/movieLists');
     }
 }

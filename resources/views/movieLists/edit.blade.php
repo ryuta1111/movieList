@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-    
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=divice-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
         <header class="bg-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="py-6">
-                    <p class="text-white text-xl">編集画面</p>                    
+                    <p class="text-white text-xl">編集画面</p>
                 </div>
             </div>
         </header>
@@ -21,15 +21,15 @@
         <main class="grow grid place-items-center">
             <div class="w-full mx-auto px-4 sm:px-6">
                 <div class="py-[100px]">
-                    <form action="/additions/{{ $movieList->id }}" method="post" class="mt-10">
+                    <form action="/movieLists/{{ $List->id }}" method="post" class="mt-10">
                         @csrf
                         @method('PUT')
 
                         <div class="flex flex-col items-center">
-                            <lavel class="w-full max-w-3xl mx-auto">
+                            <label class="w-full max-w-3xl mx-auto">
                                 <input
-                                    class="placeholder:itlic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    type="text" name="movie_name" value="{{ $movieList->name }}" />
+                                    class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                                    type="text" name="movie_name" value="{{ $List->name }}" />
                                 @error('movie_name')
                                     <div class="mt-3">
                                         <p class="text-red-500">
@@ -37,10 +37,10 @@
                                         </p>
                                     </div>
                                 @enderror
-                            </lavel>
+                            </label>
 
                             <div class="mt-8 w-full flex items-center justify-center gap-10">
-                                <a href="/additions" class="block shrink-0 underline underline-offset-2">
+                                <a href="/movieLists" class="block shrink-0 underline underline-offset-2">
                                     戻る
                                 </a>
                                 <button type="submit"
