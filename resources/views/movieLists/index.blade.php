@@ -82,7 +82,7 @@
                                                                 <input type="hidden" name="status" value="{{ $item->status }}">
 
                                                                 <button type="submit"
-                                                                    class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">完了</button>
+                                                                    class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">見た！</button>
                                                             </form>
                                                         </div>
                                                         <div>
@@ -119,6 +119,16 @@
                         </div>
                     </div>
                 @endif
+
+                <div class="flex flex-col items-center mt-10">
+                    <label class="w-full max-w-3xl mx-auto">
+                        <a href="movieLists/list/"
+                            class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
+                            鑑賞済みの映画はこちら
+                        </a>
+                    </label>
+                </div>
+
             </div>
         </div>
     </main>
