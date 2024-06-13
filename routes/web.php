@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// localhost:8000/additions にアクセスしたらMovieListControllerを呼び出す
+// localhost:8000/movieLists にアクセスしたらMovieListControllerを呼び出す
 Route::resource('movieLists' , MovieListController::class);
