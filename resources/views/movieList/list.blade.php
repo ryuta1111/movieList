@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang= "ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +39,10 @@
                                             </th>
                                             <th scape="col"
                                                 class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                                                鑑賞日
+                                            </th>
+                                            <th scape="col"
+                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
                                                 一言コメント
                                             </th>
                                             <th scape="col"
@@ -59,12 +64,12 @@
                                                 </td>
                                                 <td class="px-3 py-4 text-sm text-gray-500">
                                                     <div>
-                                                        {{ $item->name }}
+                                                        {{ $item->how_to_watch }}
                                                     </div>
                                                 </td>
                                                 <td class="px-3 py-4 text-sm text-gray-500">
                                                     <div>
-                                                        {{ $item->how_to_watch }}
+                                                        {{ $item->created_at }}
                                                     </div>
                                                 </td>
                                                 <td class="px-3 py-4 text-sm text-gray-500">
@@ -79,18 +84,18 @@
                                                 </td>
                                                 <td class="p-0 text-right text-sm font-medium">
                                                     <div class="flex justify-end">
-                                                        <form action="/additions/{{ $item->id }}"
+                                                        <form action="/movieList/{{ $item->id }}"
                                                             method="post"
                                                             class="inline-block text-gray-500 font-medium"
                                                             role="menuitem" tabindex="-1">
                                                             @csrf
                                                             @method('PUT')
                                                             <div>
-                                                                <a href="/additions/{{ $item->id }}/reEdit/"
+                                                                <a href="/movieList/{{ $item->id }}/edit/"
                                                                     class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
                                                             </div>
                                                             <div>
-                                                                <form action="/additions/{{ $item->id }}" method="post"
+                                                                <form action="/movieList/{{ $item->id }}" method="post"
                                                                     class="inline-block text-gray-500 font-medium"
                                                                     role="menuitem" tabindex="-1">
                                                                     @csrf
@@ -102,31 +107,23 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                @endif
             </div>
         </div>
     </main>
 
-
-
-
-
-
-
+    <footer class="bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="py-4 text-center">
+                <p class="text-white text-sm">映画リスト</p>
+            </div>
+        </div>
+    </footer>
 </body>
-
-
-
-
-
-
-
-
-
-
 </html>

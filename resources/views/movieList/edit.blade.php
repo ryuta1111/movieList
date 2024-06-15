@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>movieList_edit</title>
+        <title>movieList-edit</title>
 
         @vite('resources/css/app.css')
     </head>
@@ -21,7 +20,7 @@
         <main class="grow grid place-items-center">
             <div class="w-full mx-auto px-4 sm:px-6">
                 <div class="py-[100px]">
-                    <form action="/movieLists/{{ $List->id }}" method="post" class="mt-10">
+                    <form action="/movieList/{{ $List->id }}" method="post" class="mt-10">
                         @csrf
                         @method('PUT')
 
@@ -40,7 +39,7 @@
                             </label>
 
                             <div class="mt-8 w-full flex items-center justify-center gap-10">
-                                <a href="/movieLists" class="block shrink-0 underline underline-offset-2">
+                                <a href="/movieList" class="block shrink-0 underline underline-offset-2">
                                     戻る
                                 </a>
                                 <button type="submit"
@@ -49,7 +48,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -61,9 +59,5 @@
                 </div>
             </div>
         </footer>
-
     </body>
-
-
-
 </html>
