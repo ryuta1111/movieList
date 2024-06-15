@@ -13,11 +13,9 @@ class MovieListController extends Controller
      */
     public function index()
     {
-        //変数名＝モデル名::処理
-        // $movieLists = movieList::all(); 全て表示
-        $Lists=movieList::where('status' , false)->get(); //複数のレコードを取得するとき　first()は最初のレコードだけ
-        //return view('[~/resources/views/]フォルダ名.ファイル名' , compact('変数名'))
-        return view('movieLists.index' , compact('Lists'));
+        //
+        $Lists=movieList::where('status' , true)->get();
+        return view('movieList.list' , compact('Lists'));
     }
 
     /**
@@ -33,32 +31,27 @@ class MovieListController extends Controller
      */
     public function store(Request $request)
     {
-        //[フォームの項目名=>バリデーションルール]
         $rules = [
-            "movie_name" => "required|max:50",
+            "movie_name" => "required|max1:50",
+            "comments" => "max2:100",
         ];
+        $messages = ['required' => '必須項目です' , 'max1' => '50文字以下にしてください。' , 'max2' => '100文字以下にしてください。'];
 
-        //[バリデーションの名前=>エラーメッセージ]
-        $messages = ['required' => '必須項目です' , 'max' => '50文字以下にしてください。'];
-
-        //Validator::make($request->all(),バリデーションルール,エラーメッセージ);
-        Validator::make($request->all(), $rules, $messages)->validate();
-
+        Validator::make($request->all() , $rules, $messages)->validate();
 
         //モデルをインスタンス化
         $List= new movieList;
 
-        //モデル->カラム名　＝　値　で、データを割り当てる
         $List->movie_name = $request->input('movie_name');
+        $List->how_to_watch = $request->input('how_to_watch');
+        $List->comments = $request->input('comments');
+        $List->evaluations = $request->input('evaluations');
 
         //データベースに保存
         $List->save();
 
         //リダイレクト
-        return redirect('/movieLists');
-
-
-        // dd($movie_name);
+        return redirect('/movieList');
     }
 
     /**
@@ -75,8 +68,8 @@ class MovieListController extends Controller
     public function edit(string $id)
     {
         //モデル名::find(整数)
-        $List = movieList::find($id);
-        return view('movieLists.edit' , compact('List'));
+        $List=movieList::find($id);
+        return view('movieList.list' , compact('List'));
     }
 
     /**
@@ -84,42 +77,28 @@ class MovieListController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //dd($request->status);
-
         //「編集する」ボタンを押した時
-        if($request->status === null){
-            $rules = [
-                'movie_name' => 'required|max:50',
-            ];
-            $messages = ['required' => '必須項目です' , 'max' => '100文字以下にしてください。'];
+        $rules=[
+            'movie_name' => 'required|max1:50',
+            "comments" => "max2:100",
+        ];
+        $messages=['required' => '必須項目です' , 'max1' => '50文字以下にしてください' , 'max2' => '100文字以下にしてください'];
 
-            Validator::make($request->all(), $rules,$messages)->validate();
+        Validator::make($request->all(), $rules,$messages)->validate();
 
-            //該当のタスクを検索
-            $List = movieList::find($id);
+        //該当作品を検索
+        $List = movieList::find($id);
 
-            //モデル->カラム名 = 値　で、データを割り当てる
-            $List->movie_name = $request->input('movie_name');
+        $List->movie_name = $request->input('movie_name');
+        $List->how_to_watch = $request->input('how_to_watch');
+        $List->comments = $request->input('comments');
+        $List->evaluations = $request->input('evaluations');
 
-            //データベースに保存
-            $List->save();
-        }else{
-            //「完了」ボタンを押した時
-
-            //該当のタスクを検索
-            $List = movieList::find($id);
-
-            //モデル->カラム名 = 値　で、データを割り当てる
-            $List->status=true; //true:完了,false:未完了
-
-            //データベースに保存
-            $List->save();
-
-        }
-
+        //データベースに保存
+        $List->save();
 
         //リダイレクト
-        return redirect('/movieLists');
+        return redirect('/movielist');
     }
 
     /**
@@ -127,9 +106,8 @@ class MovieListController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         movieList::find($id)->delete();
 
-        return redirect('/movieLists');
+        return redirect('/movieList');
     }
 }

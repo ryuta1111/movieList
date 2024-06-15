@@ -23,7 +23,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="py-[100px]">
                 <p class="text-2xl font-bold text-center">今見たい映画は？</p>
-                <form action="/movieLists" method="post" class="mt-10">
+                <form action="/addition" method="post" class="mt-10">
                     @csrf
 
                     <div class="flex flex-col items-center">
@@ -72,7 +72,7 @@
                                                 <td class="p-0 text-right text-sm font-medium">
                                                     <div class="flex justify-end">
                                                         <div>
-                                                            <form action="/movieLists/ {{ $item->id }}"
+                                                            <form action="/addition/ {{ $item->id }}"
                                                                 method="post"
                                                                 class="inline-block text-gray-500 font-medium"
                                                                 role="menuitem" tabindex="-1">
@@ -82,16 +82,16 @@
                                                                 <input type="hidden" name="status" value="{{ $item->status }}">
 
                                                                 <button type="submit"
-                                                                    class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">見た！</button>
+                                                                    class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">見た</button>
                                                             </form>
                                                         </div>
                                                         <div>
-                                                            <a href="/movieLists/{{ $item->id }}/edit/"
+                                                            <a href="/addition/{{ $item->id }}/edit/"
                                                                 class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
                                                         </div>
                                                         <div>
                                                             <form onsubmit="return deleteList();"
-                                                                action="/movieLists/{{ $item->id }}" method="post"
+                                                                action="/addition/{{ $item->id }}" method="post"
                                                                 class="inline-block text-gray-500 font-medium"
                                                                 role="menuitem" tabindex="-1">
                                                                 @csrf
@@ -121,12 +121,10 @@
                 @endif
 
                 <div class="flex flex-col items-center mt-10">
-                    <label class="w-full max-w-3xl mx-auto">
                         <a href="movieLists/list/"
-                            class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
+                            class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors text-center">
                             鑑賞済みの映画はこちら
                         </a>
-                    </label>
                 </div>
 
             </div>
