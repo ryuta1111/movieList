@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +28,7 @@
                             <label class="w-full max-w-3xl mx-auto">
                                 <input
                                     class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                                    type="text" name="movie_name" value="{{ $List->name }}" />
+                                    type="text" name="movie_name" value="{{ $List->movie_name }}" />
                                 @error('movie_name')
                                     <div class="mt-3">
                                         <p class="text-red-500">

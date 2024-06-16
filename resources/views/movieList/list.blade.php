@@ -22,7 +22,8 @@
     <main class="grow grid place-items-center">
         <div class="w-full mx-auto px-4 sm:px-6">
             <div class="py-[100px]">
-                @if($Lists->isNotEmpty())
+                <p class="text-2xl font-bold text-center">鑑賞済みの映画</p>
+                @if ($Lists->isNotEmpty())
                     <div class="max-w-7xl mx-auto mt-20">
                         <div class="inline-block min-w-full py-2 align-middle">
                             <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
@@ -84,30 +85,34 @@
                                                 </td>
                                                 <td class="p-0 text-right text-sm font-medium">
                                                     <div class="flex justify-end">
-                                                        <form action="/movieList/{{ $item->id }}"
-                                                            method="post"
-                                                            class="inline-block text-gray-500 font-medium"
-                                                            role="menuitem" tabindex="-1">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div>
-                                                                <a href="/movieList/{{ $item->id }}/edit/"
-                                                                    class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
-                                                            </div>
-                                                            <div>
-                                                                <form action="/movieList/{{ $item->id }}" method="post"
-                                                                    class="inline-block text-gray-500 font-medium"
-                                                                    role="menuitem" tabindex="-1">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit"
-                                                                        class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
-                                                            </div>
-                                                        </form>
+                                                        <div>
+                                                            <a href="/movieList/{{ $item->id }}/edit/"
+                                                                class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
+                                                        </div>
+                                                        <div>
+                                                            <form onsubmit="return deleteList();"
+                                                                action="/movieList/{{ $item->id }}" method="post"
+                                                                class="inline-block text-gray-500 font-medium"
+                                                                role="menuitem" tabindex="-1">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
+                                        <script>
+                                            function deleteList(){
+                                                if(confirm('本当に削除しますか？')){
+                                                    return true;
+                                                }else{
+                                                    return false;
+                                                }
+                                            }
+                                        </script>
                                     </tbody>
                                 </table>
                             </div>
