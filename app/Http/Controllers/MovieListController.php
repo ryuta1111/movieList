@@ -31,14 +31,6 @@ class MovieListController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            "movie_name" => "required|max1:50",
-            "comments" => "max2:100",
-        ];
-        $messages = ['required' => '必須項目です' , 'max1' => '50文字以下にしてください。' , 'max2' => '100文字以下にしてください。'];
-
-        Validator::make($request->all() , $rules, $messages)->validate();
-
         //モデルをインスタンス化
         $List= new movieList;
 
@@ -69,7 +61,7 @@ class MovieListController extends Controller
     {
         //モデル名::find(整数)
         $List=movieList::find($id);
-        return view('movieList.list' , compact('List'));
+        return view('movieList.edit' , compact('List'));
     }
 
     /**
@@ -98,7 +90,7 @@ class MovieListController extends Controller
         $List->save();
 
         //リダイレクト
-        return redirect('/movielist');
+        return redirect('/movieList');
     }
 
     /**

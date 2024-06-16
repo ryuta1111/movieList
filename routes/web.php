@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\additionController;
-use App\Http\Controllers\movieListController;
+use App\Http\Controllers\MovieListController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,4 +13,4 @@ Route::get('/', function () {
 // localhost:8000/movieLists にアクセスしたらMovieListControllerを呼び出す
 Route::resource('addition' , additionController::class);
 
-Route::resource('movieList' , movieListController::class);
+Route::resource('movieList' , MovieListController::class);
