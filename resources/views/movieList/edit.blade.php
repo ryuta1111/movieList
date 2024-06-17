@@ -59,10 +59,36 @@
                             </label>
                             <label class="w-full max-w-3xl mx-auto">
                                 <p>評価</p>
-                                <input
+                                <!-- <input
                                     class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                                     type="text" name="evaluations" value="{{ $List->evaluations }}" />
-                            </label>
+                            </label> -->
+                            <div>
+                                <div>
+                                    <div class="flex flex-direction-reverse justify-center">
+                                        <input class="hidden"
+                                            id="1" type="radio" name="evaluations">
+                                            <label class="text-gray-500 text-2xl cursor-pointer hover:text-yellow-300 transition-colors"
+                                                for="1">★</label>
+                                        <input class="hidden"
+                                            id="2" type="radio" name="evaluations">
+                                            <label class="text-gray-500 text-2xl cursor-pointer hover:text-yellow-300 transition-colors"
+                                                for="2">★</label>
+                                        <input class="hidden"
+                                            id="3" type="radio" name="evaluations">
+                                            <label class="text-gray-500 text-2xl cursor-pointer hover:text-yellow-300 transition-colors"
+                                                for="3">★</label>
+                                        <input class="hidden"
+                                            id="4" type="radio" name="evaluations">
+                                            <label class="text-gray-500 text-2xl cursor-pointer hover:text-yellow-300 transition-colors"
+                                                for="4">★</label>
+                                        <input class="hidden"
+                                            id="5" type="radio" name="evaluations">
+                                            <label class="text-gray-500 text-2xl cursor-pointer hover:text-yellow-300 transition-colors"
+                                                for="5">★</label>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="mt-8 w-full flex items-center justify-center gap-10">
                                 <a href="/movieList" class="block shrink-0 underline underline-offset-2">
