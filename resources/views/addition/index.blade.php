@@ -121,7 +121,7 @@
                 @endif
 
                 <div class="flex flex-col items-center mt-10">
-                        <a href="movieLists/list/"
+                        <a href="http://127.0.0.1:8000/movieList"
                             class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors text-center">
                             鑑賞済みの映画はこちら
                         </a>

@@ -46,21 +46,21 @@
                                 <div class="flex flex-direction-reverse justify-center form-group mb-4">
                                     <div class="form-check form-check-inline is-invalid mx-1">
                                         <input class="form-check-input"
-                                            id="" type="radio" name="how_to_watch">
-                                            <label class="text-slate-950 text-base"
-                                                for="1">映画館</label>
+                                            id="chk01" type="checkbox" name="how_to_watch">
+                                            <label class="form-check-label text-slate-950 text-base"
+                                                for="chk01">映画館</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
                                         <input class="form-check-input"
-                                            id="2" type="radio" name="how_to_watch">
-                                            <label class="text-slate-950 text-base"
-                                                for="2">アプリ</label>
+                                            id="chk02" type="checkbox" name="how_to_watch">
+                                            <label class="form-check-label text-slate-950 text-base"
+                                                for="chk02">アプリ</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
                                         <input class="form-check-input"
-                                            id="3" type="radio" name="how_to_watch">
-                                            <label class="text-slate-950 text-base"
-                                                for="3">レンタル</label>
+                                            id="chk03" type="checkbox" name="how_to_watch">
+                                            <label class="form-check-label text-slate-950 text-base"
+                                                for="chk03">レンタル</label>
                                     </div>
                                 </div>
                             </label>
