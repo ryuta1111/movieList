@@ -119,6 +119,12 @@
                         </div>
                     </div>
                 @endif
+                <div class="flex flex-col items-center mt-10">
+                    <a href="http://127.0.0.1:8000/addition"
+                                class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors text-center">
+                                追加ページに戻る
+                            </a>
+                </div>
             </div>
         </div>
     </main>
