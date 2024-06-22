@@ -82,9 +82,11 @@ class MovieListController extends Controller
         $List = movieList::find($id);
 
         $List->movie_name = $request->input('movie_name');
-        $List->how_to_watch = $request->input('how_to_watch');
+        // $List->how_to_watch = $request->input('how_to_watch');
+        
         $List->comments = $request->input('comments');
-        $List->evaluations = $request->input('evaluations');
+        // $List->evaluations = $request->input('evaluations')
+
 
         //データベースに保存
         $List->save();
