@@ -71,10 +71,9 @@ class MovieListController extends Controller
     {
         //「編集する」ボタンを押した時
         $rules=[
-            'movie_name' => 'required|max1:50',
-            "comments" => "max2:100",
+            'movie_name' => 'required|max:50',
         ];
-        $messages=['required' => '必須項目です' , 'max1' => '50文字以下にしてください' , 'max2' => '100文字以下にしてください'];
+        $messages=['required' => '必須項目です' , 'max' => '50文字以下にしてください'];
 
         Validator::make($request->all(), $rules,$messages)->validate();
 
@@ -82,8 +81,7 @@ class MovieListController extends Controller
         $List = movieList::find($id);
 
         $List->movie_name = $request->input('movie_name');
-        $how_to_watch = $request->input('how_to_watch');
-        $List->how_to_watch = $request->input('how_to_watch',$how_to_watch)->first();
+        $List->how_to_watch = $request->input('how_to_watch');
         $List->comments = $request->input('comments');
         $List->evaluations = $request->input('evaluations');
 

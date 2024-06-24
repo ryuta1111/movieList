@@ -42,19 +42,16 @@
                                 <p>鑑賞方法</p>
                                 <div class="form-group flex flex-direction-reverse justify-center mb-4">
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk01" name="how_to_watch" value="1" {{ old('how_to_watch', $menu->how_to_watch) == '1' ? 'checked' : '' }}>
-                                        <label class="form-check-label text-slate-950 text-base"
-                                            for="chk01">映画館</label>
+                                        <input class="form-check-input" type="radio" id="how01" name="how_to_watch" value='1' {{ old('how_to_watch' , $List->how_to_watch) == '1' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-slate-950 text-base" for="how01">映画館</label>
                                     </div>
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk02" name="how_to_watch" value="2" {{ old('how_to_watch', $menu->how_to_watch) == '2' ? 'checked' : '' }}>
-                                        <label class="form-check-label text-slate-950 text-base"
-                                            for="chk02">アプリ</label>
+                                        <input class="form-check-input" type="radio" id="how02" name="how_to_watch" value='2' {{ old('how_to_watch' , $List->how_to_watch) == '2' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-slate-950 text-base" for="how02">アプリ</label>
                                     </div>
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk03" name="how_to_watch" value="3" {{ old('how_to_watch', $menu->how_to_watch) == '3' ? 'checked' : '' }}>
-                                        <label class="form-check-label text-slate-950 text-base"
-                                            for="chk03">レンタル</label>
+                                        <input class="form-check-input" type="radio" id="how03" name="how_to_watch" value='3' {{ old('how_to_watch' , $List->how_to_watch) == '3' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-slate-950 text-base" for="how03">レンタル</label>
                                     </div>
                                 </div>
                             </label>
@@ -75,29 +72,24 @@
                                 <p>評価</p>
                                 <div class="form-group flex flex-direction-reverse justify-center mb-4">
                                     <div class="form-check form-check-inline is-invalid mx-1">
-                                        <input class="hidden form-check-input form-check-inline is-invalid" type="radio" id="evaluation1" name="evaluations" value="1">
-                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300"
-                                            for="evaluation1">★</label>
+                                        <input class="hidden form-check-input" type="radio" id="eva01" name="evaluations" value="1" {{ old('evaluations' , $List->evaluations) == '1' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300" for="eva01">★</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
-                                        <input class="hidden form-check-input form-check-inline is-invalid" type="radio" id="evaluation2" name="evaluations" value="2">
-                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300"
-                                            for="evaluation2">★</label>
+                                        <input class="hidden form-check-input" type="radio" id="eva02" name="evaluations" value="2" {{ old('evaluations' , $List->evaluations) == '2' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300" for="eva02">★</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
-                                        <input class="hidden form-check-input form-check-inline is-invalid" type="radio" id="evaluation3" name="evaluations" value="3">
-                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300"
-                                            for="evaluation3">★</label>
+                                        <input class="hidden form-check-input" type="radio" id="eva03" name="evaluations" value="3" {{ old('evaluations' , $List->evaluations) == '3' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300" for="eva03">★</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
-                                        <input class="hidden form-check-input form-check-inline is-invalid" type="radio" id="evaluation4" name="evaluations" value="4">
-                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300"
-                                            for="evaluation4">★</label>
+                                        <input class="hidden form-check-input" type="radio" id="eva04" name="evaluations" value="4" {{ old('evaluations' , $List->evaluations) == '4' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300" for="eva04">★</label>
                                     </div>
                                     <div class="form-check form-check-inline is-invalid mx-1">
-                                        <input class="hidden form-check-input form-check-inline is-invalid" type="radio" id="evaluation5" name="evaluations" value="5">
-                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300"
-                                            for="evaluation5">★</label>
+                                        <input class="hidden form-check-input" type="radio" id="eva05" name="evaluations" value="5" {{ old('evaluations' , $List->evaluations) == '5' ? 'checked' : ''}}>
+                                        <label class="form-check-label text-gray-500 text-2xl cursor-pointer hover:text-yellow-300" for="eva05">★</label>
                                         </div>
                                 </div>
                             </label>
