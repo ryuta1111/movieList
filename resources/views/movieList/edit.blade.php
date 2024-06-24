@@ -42,17 +42,17 @@
                                 <p>鑑賞方法</p>
                                 <div class="form-group flex flex-direction-reverse justify-center mb-4">
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk01" name="how_to_watch" value="1">
+                                        <input class="form-check-input" type="radio" id="chk01" name="how_to_watch" value="1" {{ old('how_to_watch', $menu->how_to_watch) == '1' ? 'checked' : '' }}>
                                         <label class="form-check-label text-slate-950 text-base"
                                             for="chk01">映画館</label>
                                     </div>
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk02" name="how_to_watch" value="2">
+                                        <input class="form-check-input" type="radio" id="chk02" name="how_to_watch" value="2" {{ old('how_to_watch', $menu->how_to_watch) == '2' ? 'checked' : '' }}>
                                         <label class="form-check-label text-slate-950 text-base"
                                             for="chk02">アプリ</label>
                                     </div>
                                     <div class="form-check form-check-inline mx-1">
-                                        <input class="form-check-input" type="radio" id="chk03" name="how_to_watch" value="3">
+                                        <input class="form-check-input" type="radio" id="chk03" name="how_to_watch" value="3" {{ old('how_to_watch', $menu->how_to_watch) == '3' ? 'checked' : '' }}>
                                         <label class="form-check-label text-slate-950 text-base"
                                             for="chk03">レンタル</label>
                                     </div>
