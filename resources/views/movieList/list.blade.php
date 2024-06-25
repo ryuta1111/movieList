@@ -29,25 +29,25 @@
                             <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-300">
                                     <thead class="bg-gray-50">
-                                        <tr>
+                                        <tr class="divide-x divide-gray-200">
                                             <th scape="col"
-                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                                                class="py-3 pl-3 pr-3 text-center text-sm font-semibold text-gray-900">
+                                                ID
+                                            </th>
+                                            <th scape="col"
+                                                class="py-3 pl-3pr-3 text-center text-sm font-semibold text-gray-900">
                                                 映画名
                                             </th>
                                             <th scape="col"
-                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                                                class="py-3 pl-3pr-3 text-center text-sm font-semibold text-gray-900">
                                                 鑑賞方法
                                             </th>
                                             <th scape="col"
-                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
-                                                鑑賞日
-                                            </th>
-                                            <th scape="col"
-                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                                                class="py-3 pl-3pr-3 text-center text-sm font-semibold text-gray-900">
                                                 一言コメント
                                             </th>
                                             <th scape="col"
-                                                class="py-3.5  pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
+                                                class="py-3 pl-3pr-3 text-center text-sm font-semibold text-gray-900">
                                                 評価
                                             </th>
                                             <th scape="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
@@ -55,32 +55,54 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="divide-y divide-gray-200 bg-white">
+                                    <tbody class="divide-y divide-gray-200  bg-white">
                                         @foreach($Lists as $item)
-                                            <tr>
-                                                <td class="px-3 py-4 text-sm text-gray-500">
+                                            <tr class="divide-x divide-gray-200">
+                                                <td class="px-3 py-3 text-center text-sm text-gray-500">
+                                                    <div>
+                                                        {{ $item->id }}
+                                                    </div>
+                                                </td>
+                                                <td class="px-3 py-3 text-left text-sm text-gray-500">
                                                     <div>
                                                         {{ $item->movie_name }}
                                                     </div>
                                                 </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500">
+                                                <td class="px-3 py-3 text-center text-sm text-gray-500">
                                                     <div>
-                                                        {{ $item->how_to_watch }}
+                                                        <input type="hidden" name="how_to_watch" value="{{ $item->how_to_watch }}" readonly />
+                                                        <?php
+                                                        if($item->how_to_watch == '1'){
+                                                            echo '映画館';
+                                                        }elseif($item->how_to_watch == '2'){
+                                                            echo 'アプリ';
+                                                        }elseif($item->how_to_watch == '3'){
+                                                            echo 'レンタル';
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500">
-                                                    <div>
-                                                        {{ $item->created_at }}
-                                                    </div>
-                                                </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500">
+                                                <td class="px-3 py-3 text-left text-sm text-gray-500">
                                                     <div>
                                                         {{ $item->comments }}
                                                     </div>
                                                 </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500">
-                                                    <div>
-                                                        {{ $item->evaluations }}
+                                                <td class="px-3 py-3 text-center text-sm text-gray-500">
+                                                    <div class="text-yellow-300">
+                                                        <input type="hidden" name="evaluations" value="{{ $item->evaluations }}" readonly />
+                                                            <?php
+                                                            if($item->evaluations == '1'){
+                                                                echo '★';
+                                                            }elseif($item->evaluations == '2'){
+                                                                echo '★★';
+                                                            }elseif($item->evaluations == '3'){
+                                                                echo '★★★';
+                                                            }elseif($item->evaluations == '4'){
+                                                                echo '★★★★';
+                                                            }elseif($item->evaluations == '5'){
+                                                                echo '★★★★★';
+                                                            }
+                                                            ?>
                                                     </div>
                                                 </td>
                                                 <td class="p-0 text-right text-sm font-medium">
